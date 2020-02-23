@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./returnBook.css">
+    <link rel="icon" type="image/x-icon" href="./ico/图书归还.png">
+    
+    <title>图书归还</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var stuNo =document.getElementById('stuNo');
+                var bookNo = document.getElementById('bookNo');
+                
+				if(stuNo.value == ""){
+					alert("请填写学号");
+					return false;         //返回false会阻止表单提交
+				}
+                
+                if(bookNo.value == ""){
+					alert("请填写书号");
+					return false;
+                }
+                
+				return true;          //返回true会提交表单
+			}
+			
+	</script>
+</head>
+<body>
+    <form action="returnBook.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>图书归还</h1>
+
+        <div class="txtb">
+            <input type="text" name="stuNo" id="stuNo">
+            <span data-placeholder="学号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="bookNo" id="bookNo">
+            <span data-placeholder="书号"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="归还">
+        
+        <div class="bottom-text">
+            点击返回<a href="./main.html">主页</a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+</body>
+</html>

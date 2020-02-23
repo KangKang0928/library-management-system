@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./addBook.css">
+    <link rel="icon" type="image/x-icon" href="./ico/图书录入.png">
+    
+    <title>增加图书</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var bookNo =document.getElementById('bookNo');
+				var bookName = document.getElementById('bookName');
+                var author = document.getElementById('author');
+                var chuban = document.getElementById('chuban');
+				var local = document.getElementById('local');
+				var bookNum = document.getElementById('bookNum');
+                var price = document.getElementById('price');
+                
+				if(bookNo.value == ""){
+					alert("书号不能为空");
+					return false;         //返回false会阻止表单提交
+				}
+				
+				if(bookName.value == ""){
+					alert("书名不能为空");
+					return false;
+				}
+				
+				if(author.value== ""){
+					alert("作者不能为空");
+					return false;
+                }
+                
+                if( chuban.value== ""){
+					alert("出版社不能为空");
+					return false;
+				}
+				
+				if(local.value== ""){
+					alert("馆藏点不能为空");
+					return false;
+                }
+                
+                if(bookNum.value == ""){
+					alert("库存不能为空");
+					return false;
+                }
+                
+                if(price.value == ""){
+					alert("单价不能为空");
+					return false;
+				}
+                if(bookNum.value<0){
+                    alert("库存不能小于0");
+                    return false;
+                }
+                if(price.value < 0){
+                    alert("单价不能小于0");
+                    return false;
+                }
+                
+			
+				
+				return true;          //返回true会提交表单
+			}
+			
+	</script>
+</head>
+
+
+<body>
+    <form action="addBook.php" method="POST" onsubmit="return Empty();" class="login-form">
+        <h1>增加图书</h1>
+
+        <div class="txtb">
+            <input type="text" name="bookNo" id="bookNo">
+            <span data-placeholder="书号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="book" id="bookName">
+            <span data-placeholder="书名"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="author" id="author">
+            <span data-placeholder="作者"></span>
+
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="chuban" id="chuban">
+            <span data-placeholder="出版社"></span>
+
+        </div>
+
+        <div class="txtb">
+                <input type="text" name="local" id="local"> 
+                <span data-placeholder="馆藏点"></span>
+        </div>
+
+        <div class="txtb">
+                <input type="text" name="num" id="bookNum">
+                <span data-placeholder="库存"></span>
+    
+         </div>
+
+         <div class="txtb">
+                <input type="text" name="price" id="price">
+                <span data-placeholder="单价"></span>
+    
+        </div>
+
+        <input type="submit" class="logbtn" value="插入图书">
+        
+        <div class="bottom-text">
+            点击返回<a href="./adminTable.html">管理员界面</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+        
+        
+
+    </script>
+
+
+
+
+
+</body>
+</html>

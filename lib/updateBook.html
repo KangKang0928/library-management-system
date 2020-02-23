@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/x-icon" href="./ico/表单更新.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./updateBook.css">
+    
+    <title>更改图书</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var bookNo =document.getElementById('bookNo');
+				var book = document.getElementById('book');
+                var author = document.getElementById('author');
+                var chuban = document.getElementById('chuban');
+                var local = document.getElementById('local');
+                var num = document.getElementById('num');
+                var price = document.getElementById('price');
+                
+				if(bookNo.value == ""){
+					alert("请填写书号");
+					return false;         //返回false会阻止表单提交
+				}
+				
+				if(book.value == ""){
+					alert("请填写书名");
+					return false;
+				}
+                
+                if(author.value == ""){
+					alert("请填写作者");
+					return false;
+				}
+                
+                if(chuban.value == ""){
+					alert("请填写出版社");
+					return false;
+                }
+                
+                if(local.value == ""){
+					alert("请填写馆藏点");
+					return false;
+                }
+                if(num.value == ""){
+					alert("请填写库存");
+					return false;
+                }
+                if(price.value == ""){
+					alert("请填写单价");
+					return false;
+				}
+                if(num.value < 0){
+					alert("库存不能小于0");
+					return false;
+                }
+                if(price.value < 0){
+					alert("单价不能小于0");
+					return false;
+				}
+				
+				return true;          //返回true会提交表单
+			}
+            
+	</script>
+</head>
+
+
+<body>
+    <form action="updateBook.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>请输入您要更改的图书信息</h1>
+
+        <div class="txtb">
+            <input type="text" name="bookNo" id="bookNo">
+            <span data-placeholder="书号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="book" id="book">
+            <span data-placeholder="书名"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="author" id="author">
+            <span data-placeholder="作者"></span>
+
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="chuban" id="chuban">
+            <span data-placeholder="出版社"></span>
+
+        </div>
+
+        <div class="txtb">
+                <input type="text" name="local" id="local">
+                <span data-placeholder="馆藏点"></span>
+        </div>
+
+        <div class="txtb">
+                <input type="text" name="num" id="num">
+                <span data-placeholder="库存"></span>
+    
+         </div>
+
+         <div class="txtb">
+                <input type="text" name="price" id="price">
+                <span data-placeholder="单价"></span>
+    
+        </div>
+
+        <input type="submit" class="logbtn" value="更改">
+        
+        <div class="bottom-text">
+            点击返回<a href="./adminTable.html">管理员界面</a>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+
+
+
+</body>
+</html>

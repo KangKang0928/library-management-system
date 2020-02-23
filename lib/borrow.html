@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./borrow.css">
+    <link rel="icon" type="image/x-icon" href="./ico/借阅记录.png">
+    <title>借阅查询</title>
+    <script>
+			//判空
+			Empty = function(){
+				var stuNo =document.getElementById('stuNo');
+				var password = document.getElementById('password');
+				if(stuNo.value == ""){
+					alert("学号不能为空");
+					return false;         //返回false会阻止表单提交
+				}
+				
+				if(password.value == ""){
+					alert("密码不能为空");
+					return false;
+				}
+				return true;          //返回true会提交表单
+			}
+			
+	</script>
+</head>
+<body>
+    <form action="borrow.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>借阅查询</h1>
+
+        <div class="txtb">
+            <input type="text" name="stuNo" id="stuNo">
+            <span data-placeholder="学号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="password" name="password" id="password">
+            <span data-placeholder="密码"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="查询">
+        
+        <div class="bottom-text">
+            点击返回<a href="./main.html">主页</a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+</body>
+</html>

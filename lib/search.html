@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="icon" type="image/x-icon" href="./ico/图书查询.png">
+    <link rel="stylesheet" href="./search.css">
+    <title>图书查询</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var name =document.getElementById('name');
+				var author = document.getElementById('author');
+                
+				if(name.value == "" && author.value == ""){
+					alert("书名和作者至少要填写一个");
+					return false;         //返回false会阻止表单提交
+				}
+				return true;          //返回true会提交表单
+			}
+			
+	</script>
+</head>
+<body>
+    <form action="search.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>图书查询</h1>
+
+        <div class="txtb">
+            <input type="text" name="name" id="name">
+            <span data-placeholder="书名"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="author" id="author">
+            <span data-placeholder="作者"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="查询">
+        
+        <div class="bottom-text">
+            点击返回<a href="./main.html">主页</a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+</body>
+</html>

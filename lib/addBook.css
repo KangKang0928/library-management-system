@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: montserrat;
+    box-sizing: border-box;
+}
+
+body{
+    /* 背景的最小高度是100%的浏览器高度 */
+    min-height: 100vh;
+    /* 背景的最小宽度是100%的浏览器宽度 */
+    min-width: 100vw;
+    /* background-image: url(C://Users/44345/Desktop/DSC04313.jpg); */
+    background-image: url("./pic/forest-931706_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-form{
+    width: 360px;
+    background: rgba(255, 255, 255, 0.83);
+    /* height: 680px; */
+    padding: 50px 40px;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.login-form h1{
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.txtb{
+    border-bottom: 1px solid #adadad;
+    position: relative;
+    margin:30px 0;
+}
+
+.txtb input{
+    font-size: 15px;
+    color: #333;
+    border: none;
+    width: 100%;
+    outline: none;
+    background: none;
+    padding: 0 5px;
+    height: 20px;
+    
+}
+
+
+
+
+.txtb span::before{
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    z-index: -1;
+    transition: .5s;
+}
+.txtb span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(120deg,#93ef55,#00b894);
+    transition: 0.5s;
+
+}
+
+.focus+span::before{
+    top: -10px;
+    font-size: 13px;
+}
+.focus+span::after{
+    width: 100%;
+}
+
+
+
+.logbtn{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(120deg,#93ef55,#00b894);
+    background-size: 300%;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    transition:1.0s;
+}
+
+.logbtn:hover{
+    background-position:right ;
+}
+
+.bottom-text{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 13px;
+}

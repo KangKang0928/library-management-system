@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image:url("./pic/aurora-1197753_1920.jpg") ;
+    background-repeat:no-repeat ;
+    background-size:100% 120% ;
+}
+.head{
+    width: 100%;
+    height: 70px;
+    top: 0px;
+    background-color:rgba(0,0,0,0.4);
+    position: absolute;
+}
+.logo{
+    margin:10px 100px ;
+    float: left;
+    
+}
+.version{
+    margin: 10px 150px;
+    float: right;
+}
+.version img{
+    height: 50px;
+    width: auto;
+}
+
+.container{
+    width: 880px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+.container a{
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    padding: 30px 60px;
+    margin: 30px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 20px;
+    color: #fff;
+    transition: 0.5s;
+}
+.container a:nth-child(1){
+    background: linear-gradient(to right,#a18cd1,#fbc2eb,#a18cd1);
+    background-size: 200%;
+}
+.container a:nth-child(2){
+    background: linear-gradient(to right,#43e97b,#38f9d7,#43e97b);
+    background-size: 200%;
+}
+.container a:nth-child(3){
+    background: linear-gradient(to right,#4481eb,#04befe,#4481eb);
+    background-size: 200%;
+}
+.container a:nth-child(4){
+    background: linear-gradient(to right,#fa709a,#fee140,#fa709a);
+    background-size: 200%;
+}
+.container a:nth-child(5){
+    background: linear-gradient(to right,#FFE29F,#FFA99F,#FFE29F);
+    background-size: 200%;
+}
+.container a:nth-child(6){
+    background: linear-gradient(to right,#2d3436,#636e72,#2d3436);
+    background-size: 200%;
+}
+.container a:hover{
+    background-position-x:100% ;
+    transform: translateY(-15px);
+}
+.container a:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255, 0.2);
+    border-radius: 20px 0 0 20px;
+}
+.container a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 4px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    filter: blur(5px);
+    transform: scale(0);
+    transition: 0.5s;
+    z-index: -1;
+
+}
+.container a:hover:before{
+    transform: scale(1);
+    bottom: -15px;
+}
+

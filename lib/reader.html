@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./reader.css">
+    <link rel="icon" type="image/x-icon" href="./ico/读者管理.png">
+    
+    <title>读者注册</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var stuNo =document.getElementById('stuNo');
+				var stuName = document.getElementById('stuName');
+				var password1 = document.getElementById('password1');
+                var password2 = document.getElementById('password2');
+                var sGender=document.getElementById('sGender');
+
+				if(stuNo.value == ""){
+					alert("学号不能为空");
+					return false;         //返回false会阻止表单提交
+				}
+				if(stuName.value == ""){
+					alert("姓名不能为空");
+					return false;
+				}
+                if(password1.value == ""){
+					alert("请宝宝填写下密码哦");
+					return false;
+				}
+                if(password2.value == ""){
+					alert("请宝宝填写下确认密码哦");
+					return false;
+				}
+
+                if(password1.value != password2.value){
+					alert("两次密码不相同");
+					return false;
+				}
+				return true;          //返回true会提交表单
+			}
+			
+	</script>
+</head>
+<body>
+    <form action="reader.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>读者账号注册</h1>
+
+        <div class="txtb">
+            <input type="text" name="stuNo" id="stuNo">
+            <span data-placeholder="*学号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="stuName" id="stuName">
+            <span data-placeholder="*姓名"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="sGender" id="sGender">
+            <span data-placeholder="性别"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="depart" id="depart">
+            <span data-placeholder="单位"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="stuTel" id="stuTel">
+            <span data-placeholder="联系方式"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="password" name="password1" id="password1">
+            <span data-placeholder="*密码"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="password" name="password2" id="password2">
+            <span data-placeholder="*确认密码"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="注册">
+        
+        <div class="bottom-text">
+            点击返回<a href="./main.html">主页</a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+</body>
+</html>

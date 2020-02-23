@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./adminLogin.css">
+    <link rel="icon" type="image/x-icon" href="./ico/管理员.png">
+    
+    <title>管理员登录</title>
+
+    <script>
+			//判空
+			Empty = function(){
+				var name =document.getElementById('name');
+				var password = document.getElementById('password');
+                
+				if(name.value == ""){
+					alert("请填写管理员账号");
+					return false;         //返回false会阻止表单提交
+				}
+				
+				if(password.value == ""){
+					alert("请填写管理员密码");
+					return false;
+				}
+
+                if(password.value!="admin" || name.value!="admin"){
+                    alert("你不是管理大大，宝宝不开门!");
+                    return false;
+                }
+				return true;          //返回true会提交表单
+			}
+
+            
+			
+	</script>
+</head>
+<body>
+    <form action="adminLogin.php" method="POST" class="login-form" onsubmit="return Empty();">
+        <h1>管理员</h1>
+
+        <div class="txtb">
+            <input type="text" name="name" id="name">
+            <span data-placeholder="管理员账号"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="password" name="password" id="password">
+            <span data-placeholder="管理员密码"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="登录">
+        
+        <div class="bottom-text">
+            点击返回<a href="./main.html">主页</a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+            $(this).addClass("focus");
+        });
+
+        $(".txtb input").on("blur",function(){
+            if($(this).val()=="")
+            $(this).removeClass("focus");
+        });
+    </script>
+</body>
+</html>
